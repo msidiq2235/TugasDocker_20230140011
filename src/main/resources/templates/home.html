@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body style="font-family: sans-serif; padding: 20px;">
+<h1>MY Website Muhammad Sidiq - 20230140011</h1>
+<h3>Selamat datang di aplikasi!</h3>
+
+<div style="margin-bottom: 20px;">
+    <a href="/form" style="text-decoration: none; color: blue;">Input Data Mahasiswa</a>
+</div>
+
+<div style="display: flex; justify-content: space-between; align-items: center; width: 600px; margin-bottom: 10px;">
+    <b>Data Mahasiswa</b>
+    <a href="/logout" style="text-decoration: none; color: red;">Logout</a>
+</div>
+
+<table border="1" cellpadding="10" style="border-collapse: collapse; width: 600px;">
+    <thead style="background-color: #f2f2f2;">
+    <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Jenis Kelamin</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${userList.empty}">
+        <td colspan="4" style="text-align: center;">Belum ada data</td>
+    </tr>
+    <tr th:each="u, stat : ${userList}">
+        <td th:text="${stat.count}" style="text-align: center;">1</td>
+        <td th:text="${u.nama}">Nama</td>
+        <td th:text="${u.nim}">NIM</td>
+        <td th:text="${u.jenisKelamin}">Jenis Kelamin</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
